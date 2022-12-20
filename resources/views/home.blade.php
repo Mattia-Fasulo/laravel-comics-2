@@ -40,24 +40,19 @@
     <section id="menu-section">
         <div class="container">
             <ul>
-                {{-- @foreach ($linksMenu as $link)
+                @foreach ($links['linkMenu'] as $link)
                     <li>
                     <div class="img-menu">
-                        <a href="{{$link['url']}}"><img src="{{$link['img']}}" alt="{{$link['title']}}"></a>
+                        <a href="{{$link['url']}}"><img src="{{Vite::asset($link['img'])}}" alt="{{$link['title']}}"></a>
                     </div>
                     <div class="title-menu">
                         <a href="{{$link['url']}}">{{ $link['title'] }}</a>
                     </div>
                 </li>
-                @endforeach --}}
+                @endforeach
             </ul>
         </div>
     </section>
 
-    <h1>I'm Main</h1>
-    <ul>
-        @foreach ($comics as $comic)
-            <li>{{ $comic['title'] }}</li>
-        @endforeach
-    </ul>
+
 @endsection

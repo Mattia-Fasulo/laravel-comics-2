@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Guest\ComicsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +17,11 @@ Route::get('/', function () {
 
     $comics = config('comics');
     // dd(compact('comics'));
-    $linksNavbar = config('linksNavbar');
-    // dd(compact('linksNavbar'));
-    $linksMenu = config('linksMenu');
-    // dd(compact('linksMenu'));
-    return view('home',compact('comics'),compact('linksNavbar'), compact('linksMenu'));
+    $links = config('links');
+    // dd(compact('links'));
+
+    return view('home',compact('comics'),compact('links'));
 });
+
+
+Route::resource('comics', ComicsController::class);

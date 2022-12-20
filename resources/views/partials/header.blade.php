@@ -8,7 +8,7 @@
         <div class="navbar d-flex align-item-center">
             <nav>
                 <ul class="d-flex justify-content-around align-content-center">
-                    @foreach ($linksNavbar as $link)
+                    @foreach ($links['linkNav'] as $link)
                         <li><a href="#">{{$link['text']}}</a></li>
                     @endforeach
                 </ul>
