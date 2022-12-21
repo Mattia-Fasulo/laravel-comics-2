@@ -3,6 +3,9 @@
 @import "./partials/variables";
 @import "./partials/mixins";
 
+main {
+    min-height: 300px;
+}
 // -------navbar--------
 #my-nav {
     @include center("horizontal");
@@ -185,6 +188,7 @@
     background-image: url(../img/footer-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 
     .container {
         @include center("horizontal");
@@ -207,18 +211,14 @@
         }
 
         ul {
-
             padding-left: 0;
             li {
-
-
                 list-style: none;
                 padding: 3px 0;
                 font-size: 0.8rem;
             }
 
             a {
-
                 text-decoration: none;
                 color: grey;
             }
@@ -236,7 +236,6 @@
     }
 }
 
-
 // footer-bot
 #footer-bot {
     position: relative;
@@ -245,13 +244,12 @@
     background-color: $light-black;
 
     .container {
-        @include center('horizontal');
+        @include center("horizontal");
         justify-content: space-between;
         height: 100%;
     }
 
     .footer-btn {
-
         button {
             cursor: pointer;
             padding: 10px;
@@ -282,7 +280,42 @@
             text-transform: uppercase;
         }
     }
+}
 
+//-----------------Comics/Show----------------
+.blu-bar {
+    position: relative;
+    height: 100px;
+    background-color: $blu;
+
+    .comic-cover{
+        position: absolute;
+        z-index: 1000;
+        bottom: 10px;
+        left: 300px;
+        width: 150px;
+        height: 300px;
+        img{
+            object-fit: cover;
+        }
+    }
+}
+
+#container-details{
+    max-width: 1000px;
+
+    .img-details{
+        img{
+            width: 300px;
+            height: 200px;
+        }
+        span {
+            text-transform: uppercase;
+            justify-self: end;
+            align-self: end;
+        }
+
+    }
 }
 
 //--------media query----------------

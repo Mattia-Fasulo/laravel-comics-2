@@ -19,7 +19,7 @@
                 @foreach ($comics as $comic)
                     <div class="card">
                         <div class="card-img">
-                            <img src="{{ $comic['thumb'] }}" alt="{{ $comic['series'] }}">
+                            <a href="{{route('comics.show',$comic->id)}}"><img src="{{ $comic['thumb'] }}" alt="{{ $comic['series'] }}"></a>
                         </div>
                         <div class="card-text">
                             <h4>{{ $comic['series'] }}</h4>

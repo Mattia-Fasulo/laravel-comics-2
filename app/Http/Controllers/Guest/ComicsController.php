@@ -30,7 +30,7 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        //
+        // return view('products.create');
     }
 
     /**
@@ -50,9 +50,11 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
-        //
+        // $comic = Comic::find($id);
+        $links = config('links');
+        return view('comics.show', compact('comic'), compact('links'));
     }
 
     /**
