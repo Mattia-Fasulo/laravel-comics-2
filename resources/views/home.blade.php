@@ -16,6 +16,7 @@
         </div>
         <div class="container">
             <div class="row">
+                {{-- card --}}
                 @foreach ($comics as $comic)
                     <div class="card">
                         <div class="card-img">
@@ -31,7 +32,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <button type="button" class="btn-current-series">Load More</button>
+                <a href="{{route('comics.create')}}" type="button" class="btn-current-series">Add Comic</a>
             </div>
         </div>
     </section>

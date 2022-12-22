@@ -14,6 +14,10 @@
             <div class="col-7">
                 <h1>{{ $comic->title }}</h1>
                 <p>{{ $comic->description }}</p>
+                <a href="{{route('comics.edit', $comic->id)}}" type="submit" class="btn btn-primary ">Edit</a>
+                <form class="d-inline" action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                    <button type="reset" class="btn btn-danger ">Remove</button>
+                </form>
             </div>
             <div class="img-details col-5 d-flex flex-column align-items-end justify-content-sm-start
             ">
@@ -23,7 +27,7 @@
         </div>
     </section>
 
-    <section id="container-details-bot" >
+    <section id="container-details-bot">
         <div class="container">
             <div class="table-left">
                 <table class="table">
@@ -72,15 +76,15 @@
                     <tbody>
                         <tr>
                             <th scope="row">Series:</th>
-                            <td class="text-uppercase">{{$comic->series}}</td>
+                            <td class="text-uppercase">{{ $comic->series }}</td>
                         </tr>
                         <tr>
                             <th scope="row">U.S. Price:</th>
-                            <td>{{$comic->price}}</td>
+                            <td>{{ $comic->price }}</td>
                         </tr>
                         <tr>
                             <th scope="row">On Sale Date:</th>
-                            <td>{{$comic->sale_date}}</td>
+                            <td>{{ $comic->sale_date }}</td>
                         </tr>
                     </tbody>
                 </table>
