@@ -16,7 +16,7 @@
                 <p>{{ $comic->description }}</p>
                 <a href="{{route('comics.edit', $comic->id)}}" type="submit" class="btn btn-primary ">Edit</a>
                 <form class="d-inline" action="{{route('comics.destroy', $comic->id)}}" method="POST">
-                    <button type="reset" class="btn btn-danger ">Remove</button>
+                    <button type="reset" class="btn btn-danger delete-button">Remove</button>
                 </form>
             </div>
             <div class="img-details col-5 d-flex flex-column align-items-end justify-content-sm-start
@@ -91,5 +91,6 @@
             </div>
         </div>
 
+        @include('partials.modal_delete')
     </section>
 @endsection

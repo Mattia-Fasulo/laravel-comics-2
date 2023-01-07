@@ -15,7 +15,7 @@ use App\Models\Comic;
 |
 */
 
-Route::get('/', [ComicsController::class, 'index']);
+Route::get('/', [ComicsController::class, 'index'])->name('index');
 
 
 Route::resource('comics', ComicsController::class);

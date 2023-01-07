@@ -8,6 +8,7 @@
         <div class="navbar d-flex align-item-center">
             <nav>
                 <ul class="d-flex justify-content-around align-content-center">
+                    <li><a href="{{route('index')}}">Home</a></li>
                     @foreach ($links['linkNav'] as $link)
                         <li><a href="#">{{$link['text']}}</a></li>
                     @endforeach

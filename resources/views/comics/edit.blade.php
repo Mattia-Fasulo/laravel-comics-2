@@ -10,7 +10,7 @@
         <h1 class="d-flex h-100 justify-content-center align-items-center text-white">Edit: {{$comic->title}}</h1>
     </div>
 
-    <div class="row justify-content-center bg-white">
+    <div class="row justify-content-center bg-white w-100">
         <div class="col-6">
             <form action="{{route('comics.update', $comic->id)}}" method="POST" class="p-4">
                 @csrf

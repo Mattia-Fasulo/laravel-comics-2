@@ -3,6 +3,12 @@
 @import "./partials/variables";
 @import "./partials/mixins";
 
+
+.remove-message {
+    background-color: $blu;
+    color: white;
+}
+
 main {
     min-height: 300px;
 }
@@ -100,30 +106,37 @@ main {
         text-align: center;
         text-decoration: none;
         cursor: pointer;
-        width: 200px;
+        width: 180px;
         color: white;
         font-weight: 600;
         padding: 10px;
         background-color: $blu;
         text-transform: uppercase;
+        transition: all 1s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
 
 // -------------Card-------------
 .card {
-    flex-basis: calc((100% - 70px) / 6);
-
+    flex-basis: calc((100% ) / 6);
     padding: 0px;
     background-color: black;
+    transition: all 1s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 
     .card-img {
         overflow: hidden;
-        height: 200px;
+        width: 190px;
+        height: 220px;
         object-fit: cover;
-
-        img {
-            object-fit: cover;
-        }
+        border-radius: 10px;
     }
     .card-text {
         height: 40px;
@@ -290,25 +303,25 @@ main {
     height: 100px;
     background-color: $blu;
 
-    .comic-cover{
+    .comic-cover {
         position: absolute;
         z-index: 1000;
         bottom: 10px;
         left: 300px;
         width: 150px;
         height: 300px;
-        img{
+        img {
             object-fit: cover;
         }
     }
 }
 
-#container-details-top{
+#container-details-top {
     max-width: 1000px;
     padding: 40px 0 30px;
 
-    .img-details{
-        img{
+    .img-details {
+        img {
             width: 300px;
             height: 200px;
         }
@@ -317,51 +330,47 @@ main {
             justify-self: end;
             align-self: end;
         }
-
     }
 }
 
-#container-details-bot{
-
+#container-details-bot {
     background-color: rgba(226, 222, 222, 0.281);
     padding-left: 0;
     padding-top: 40px;
     padding-bottom: 40px;
     border-top: 1px solid gray;
 
-    .container{
+    .container {
         max-width: 1000px;
         display: flex;
     }
     table {
         border-color: rgb(199, 198, 198);
-        th{
+        th {
             width: 45%;
-
         }
-        td{
+        td {
             width: 55%;
         }
     }
 
-    .table-right{
+    .table-right {
         width: 47%;
         margin-left: 1rem;
     }
-    .table-left{
+    .table-left {
         margin-right: 1rem;
         width: 50%;
         table {
-            th{
+            th {
                 width: 35%;
             }
-            td{
+            td {
                 width: 65%;
             }
         }
     }
 }
-
 
 //--------media query----------------
 @media screen and (max-width: 1100px) {
