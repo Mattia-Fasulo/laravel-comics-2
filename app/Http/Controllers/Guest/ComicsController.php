@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicsController extends Controller
 {
@@ -44,7 +45,8 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->all();
+        // $form_data = $request->all();
+        $form_data = $this->validation($request->all());
 
         // $newComic = new Comic();
         //     $newComic->title = $form_data['title'];
@@ -97,7 +99,8 @@ class ComicsController extends Controller
     {
         $comic = Comic::find($id);
 
-        $form_data = $request->all();
+        // $form_data = $request->all();
+        $form_data = $this->validation($request->all());
 
         $comic->title = $form_data['title'];
         $comic->description = $form_data['description'];
@@ -123,5 +126,35 @@ class ComicsController extends Controller
     {
         $comic->delete();
         return redirect()->route('comics.index')->with('message', "$comic->title has been deleted with success.");
+    }
+
+    private function validation($data)
+    {
+        $validator = Validator::make($data, [
+            'title' => 'required|min:5|max:100',
+            'description' => 'required|min:5',
+            'thumb' => 'required|url|max:200',
+            'price' => 'required',
+            'series' => 'required|max:20',
+            'sale_date' => 'required|date',
+            'type' => 'required|max:20',
+        ], [
+            'title.required' => 'Title is required.',
+            'title.min' => 'The title must be at least :min characters long.',
+            'title.max' => 'Title cannot exceed :max characters.',
+            'description.required' => 'The description is required .',
+            'description.min' => 'The description must be at least :min characters long.',
+            'thumb.required' => 'The image url is required.',
+            'thumb.max' => 'Image url cannot exceed :max characters.',
+            'thumb.url' => 'Please enter a url.',
+            'price.required' => 'Price is required.',
+            'series.required' => 'Series is required.',
+            'series.max' => 'Series cannot exceed :max characters.',
+            'sale_date.required' => 'Sale date is required.',
+            'type.required' => 'Type is required.',
+            'type.max' => 'The Type cannot exceed :max characters.'
+        ])->validate();
+
+        return $validator;
     }
 }
